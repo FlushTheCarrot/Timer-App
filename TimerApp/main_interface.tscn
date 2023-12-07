@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://bysw82nkh538i"]
+
+[ext_resource type="Script" path="res://main_interface.gd" id="1_clxef"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgx4s"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="MainInterface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_clxef")
+
+[node name="BackgroundColor" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 1152.0
+color = Color(0.337255, 0.490196, 0.839216, 1)
+
+[node name="AddTime" type="Button" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 896.0
+offset_right = 256.0
+offset_bottom = 1024.0
+theme_override_colors/font_color = Color(0.278431, 0.494118, 0.988235, 1)
+theme_override_font_sizes/font_size = 101
+theme_override_styles/normal = SubResource("StyleBoxFlat_qgx4s")
+toggle_mode = true
+text = "+"
+
+[node name="RemoveTime" type="Button" parent="."]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 896.0
+offset_right = 576.0
+offset_bottom = 1034.0
+theme_override_colors/font_color = Color(0.278431, 0.494118, 0.988235, 1)
+theme_override_font_sizes/font_size = 101
+theme_override_styles/normal = SubResource("StyleBoxFlat_qgx4s")
+toggle_mode = true
+text = "-"
+
+[node name="DisplayTime" type="Label" parent="."]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 280.0
+offset_right = 429.0
+offset_bottom = 827.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 401
+
+[node name="MainTimer" type="Timer" parent="."]
+
+[connection signal="toggled" from="AddTime" to="." method="_on_add_time_toggled"]
+[connection signal="toggled" from="RemoveTime" to="." method="_on_remove_time_toggled"]
